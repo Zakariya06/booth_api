@@ -1,28 +1,29 @@
 import fetch from "node-fetch";
 
 export async function handler(event) {
-  const path = event.path.replace("/api/proxy", ""); // Remove proxy path
-  const apiUrl = `http://api.expo.win${path}`;
+  const { path, body, queryStringParameters, httpMethod } = event;
 
+  const apiUrl = `http://api.expo.win${path.replace("/api/proxy", "")}`;
+  
   try {
     const response = await fetch(apiUrl, {
-      method: event.httpMethod,
+      method: httpMethod,
       headers: {
         "Content-Type": "application/json",
-        ...event.headers, // Pass any headers from request
       },
-      body: event.body,
+      body: httpMethod !== "GET" ? body : null,
     });
 
-    const data = await response.text();
+    const data = await response.json();
+    
     return {
       statusCode: response.status,
-      body: data,
+      body: JSON.stringify(data),
     };
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "Failed to fetch API" }),
+      body: JSON.stringify({ error: "Proxy error", details: error.message }),
     };
   }
 }
