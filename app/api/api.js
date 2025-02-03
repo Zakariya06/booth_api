@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://api.expo.win/api",
+  baseURL: "/api/proxy/api",
   headers: {
     "Content-Type": "application/json",
   },
