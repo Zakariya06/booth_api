@@ -1,20 +1,25 @@
 export default async function handler(req, res) {
-    const apiUrl = "http://api.expo.win" + req.url.replace("/api/proxy", "");
-  
-    try {
-      const apiResponse = await fetch(apiUrl, {
-        method: req.method,
-        headers: {
-          "Content-Type": "application/json",
-          ...req.headers, // Pass headers
-        },
-        body: req.method !== "GET" ? JSON.stringify(req.body) : null,
-      });
-  
-      const data = await apiResponse.json();
-      res.status(apiResponse.status).json(data);
-    } catch (error) {
-      res.status(500).json({ error: "Failed to fetch data" });
+    const { method } = req;
+
+    const API_URL = "http://api.expo.win"; // Your actual API
+    const targetUrl = `${API_URL}${req.url.replace("/api/proxy", "")}`;
+
+    if (method === "GET" || method === "POST") {
+        try {
+            const response = await fetch(targetUrl, {
+                method,
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: method === "POST" ? JSON.stringify(req.body) : undefined,
+            });
+
+            const data = await response.json();
+            return res.status(response.status).json(data);
+        } catch (error) {
+            return res.status(500).json({ error: "Proxy error", details: error.message });
+        }
+    } else {
+        return res.status(405).json({ error: "Method Not Allowed" });
     }
-  }
-  
+}
