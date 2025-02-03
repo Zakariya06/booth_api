@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "/api/proxy", // Use Next.js API proxy instead of the original API
+  baseURL: "http://api.expo.win/api",
   headers: {
     "Content-Type": "application/json",
   },
