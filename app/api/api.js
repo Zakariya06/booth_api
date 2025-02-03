@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
+  baseURL: "/api/proxy", // Use Next.js API proxy instead of the original API
   headers: {
     "Content-Type": "application/json",
   },
@@ -14,7 +14,7 @@ export const AllBooths = async () => {
     return response.data;
   } catch (error) {
     console.error("Error fetching all booths:", error.message);
-    throw error;  
+    throw error;
   }
 };
 
@@ -68,7 +68,7 @@ export const deleteBooth = async (id) => {
 export const uploadFile = async (file) => {
   try {
     const formData = new FormData();
-    formData.append("file", file);  
+    formData.append("file", file);
     formData.append("category", "general"); // Ensure category is included
 
     const response = await api.post("/files", formData, {
@@ -82,7 +82,7 @@ export const uploadFile = async (file) => {
     console.error("Error details:", error.response?.data || error.message);
     throw error;
   }
-}; 
+};
 
 export const getFiles = async (id) => {
   try {
