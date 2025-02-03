@@ -1,0 +1,252 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+body {
+  background: #fff;
+  font-family: "Plus Jakarta Sans", serif;
+}
+.page {
+  padding: 1em 0;
+}
+.inputHolder {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.inputLabel {
+  display: block;
+  font-family: "Plus Jakarta Sans", serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #141414;
+  margin-bottom: 0.2rem;
+}
+.inputArea {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #dbe0e5;
+  border-radius: 8px;
+  font-family: "Plus Jakarta Sans", serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #3d4d5c;
+}
+.inputArea:focus {
+  outline-color: #369eff;
+}
+.progressBar {
+  height: 0.6rem;
+}
+.UploadImageContainer {
+  width: 100%;
+}
+.uploadedImage {
+  width: 100%;
+  height: auto;
+}
+.mainBtn {
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  background: #f0f2f5;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+.mainBtn:hover {
+  background: #369eff;
+  color: #fff;
+}
+.NewArrivals {
+  margin: 1rem 0;
+}
+.navTabsButtonContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.newArrivalButton {
+  font-weight: 400;
+}
+.smtext {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #3d4d5c;
+}
+.FileExample {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+}
+.FileExample .smtext {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #141414;
+}
+.buttonContainer {
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.buttonContainer button {
+  font-size: 0.78rem;
+}
+.fillBtn {
+  background: #369eff;
+  color: #fff;
+}
+.fillBtn:hover {
+  background: #dbe0e5;
+  color: #141414;
+}
+.qrCodeImage {
+  width: 400px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+/* media */
+
+@media screen and (max-width: 992px) {
+  .navTabsButtonContainer {
+    overflow-x: scroll;
+    padding-bottom: 0.4rem;
+  }
+  .navTabsButtonContainer::-webkit-scrollbar {
+    display: none;
+  }
+  .navTabsButtonContainer button {
+    text-wrap: nowrap;
+  }
+  .qrCodeImage {
+    width: 100%;
+  }
+}
+
+/* regestration Page */
+.regestierForm {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Be Vietnam Pro", serif;
+  justify-content: space-between;
+  row-gap: 4rem;
+  padding: 2rem 0;
+}
+.regesHeader {
+  width: 100%;
+}
+.regesHeader .lgHeading {
+  font-family: "Be Vietnam Pro", serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 35px;
+  text-align: center;
+  color: #141414;
+}
+.regesHeader .smtext {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #141414;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.RegistrationCotent {
+  width: 100%;
+}
+.checkSection {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 1rem;
+}
+.inputCheckBox {
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 1px solid #dbe0e5;
+  cursor: pointer;
+}
+.checkBoxLabel {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #141414;
+}
+.regestierForm .mainBtn {
+  width: 100%;
+  border-radius: 20px;
+}
+
+/* filesData */
+.filesData {
+  margin-top: 1rem;
+  width: 100%;
+}
+.regestierForm .mdHeading {
+  font-size: 22px;
+  font-weight: 700;
+  color: #141414;
+  margin-bottom: 1rem;
+}
+.fileDataLabel {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.fileDataLabel .smtext {
+  text-align: left;
+  margin: 0;
+  font-size: 0.9rem;
+  color: #3d4d5c;
+}
+.fileDataLabel .smtext.subHeading {
+  color: #141414;
+}
+.fileLeft {
+  border-top: 1px solid #e5e8eb;
+  padding: 0.6rem 0;
+  flex: 1;
+}
+.fileRight {
+  flex: 1;
+}
+
+/* exibitionButtonsContainer */
+.exibitionFooter {
+  width: 100%;
+}
+.exibitionButtonsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.exibitionButtonsContainer .mainBtn {
+  width: fit-content;
+  font-size: 0.85rem;
+}
+.ContactButton {
+  margin-top: 2rem;
+}
+.extribitionImage {
+  width: 100%;
+  height: auto;
+}
