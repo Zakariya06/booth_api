@@ -1,7 +1,7 @@
 export async function POST(req) {
   try {
     const body = await req.json();
-    const apiResponse = await fetch("http://api.expo.win/api/files", {
+    const apiResponse = await fetch("http://api.expo.win/api", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
@@ -18,7 +18,7 @@ export async function POST(req) {
 
 export async function GET(req) {
   try {
-    const apiResponse = await fetch("http://api.expo.win/api/files", {
+    const apiResponse = await fetch("http://api.expo.win/api", {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     });
